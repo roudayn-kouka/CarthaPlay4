@@ -12,6 +12,7 @@ import { TeacherTracking } from './pages/TeacherTracking';
 import { CreateGameForm } from './components/CreateGameForm';
 import { GameList } from './components/GameList';
 import GameApp from './frontend/carthaplay/src/GameApp';
+import AffichageQst from './pages/AffichageQst';
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/student/dashboard" element={<StudentDashboard />}/>
         <Route path="/student/games" element={<GameList role="student" />} />
         <Route path="/game" element={<GameApp />} />
+        <Route path="/AffichageQst/:gameId" element={<AffichageQst />} />
       </Routes>
     </Router>
   );

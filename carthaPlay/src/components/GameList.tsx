@@ -42,10 +42,11 @@ export const GameList: React.FC<GameListProps> = ({ role }) => {
     },
   ]);
 
-  const filteredGames = games.filter(game =>
-    game.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    game.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    game.lesson.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredGames = games.filter(
+    (game) =>
+      game.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      game.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      game.lesson.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -54,7 +55,9 @@ export const GameList: React.FC<GameListProps> = ({ role }) => {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">
             <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              {role === 'teacher' ? 'Bibliothèque des jeux' : 'Jeux disponibles'}
+              {role === 'teacher'
+                ? 'Bibliothèque des jeux'
+                : 'Jeux disponibles'}
             </span>
           </h1>
           {role === 'teacher' && (
@@ -89,13 +92,20 @@ export const GameList: React.FC<GameListProps> = ({ role }) => {
               onClick={() => setSelectedGame(game)}
             >
               <div className="absolute top-4 right-4">
-                <div className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  game.difficulty === 'easy' ? 'bg-green-100 text-green-800' :
-                  game.difficulty === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                  'bg-red-100 text-red-800'
-                }`}>
-                  {game.difficulty === 'easy' ? 'Facile' :
-                   game.difficulty === 'medium' ? 'Moyen' : 'Difficile'}
+                <div
+                  className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    game.difficulty === 'easy'
+                      ? 'bg-green-100 text-green-800'
+                      : game.difficulty === 'medium'
+                      ? 'bg-yellow-100 text-yellow-800'
+                      : 'bg-red-100 text-red-800'
+                  }`}
+                >
+                  {game.difficulty === 'easy'
+                    ? 'Facile'
+                    : game.difficulty === 'medium'
+                    ? 'Moyen'
+                    : 'Difficile'}
                 </div>
               </div>
 
@@ -104,7 +114,9 @@ export const GameList: React.FC<GameListProps> = ({ role }) => {
                   <BookOpen className="h-6 w-6 text-indigo-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">{game.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {game.title}
+                  </h3>
                   <p className="text-sm text-gray-600">{game.subject}</p>
                 </div>
               </div>
@@ -124,9 +136,10 @@ export const GameList: React.FC<GameListProps> = ({ role }) => {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    navigate(role === 'teacher' 
-                      ? `/teacher/games/${game.id}/edit`
-                      : `/student/games/${game.id}`
+                    navigate(
+                      role === 'teacher'
+                        ? `/AffichageQst/${game.id}` // Navigation vers la page AffichageQst
+                        : `/student/games/${game.id}`
                     );
                   }}
                   className="mt-4 w-full py-2 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium hover:from-indigo-700 hover:to-purple-700 transition-colors duration-200"

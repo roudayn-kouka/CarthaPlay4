@@ -7,41 +7,18 @@ import {
   Mail,
   CheckCircle,
   Star,
-  Brain,
-  Target,
-  BookOpenCheck,
 } from 'lucide-react';
 import { Background } from '../components/Background';
 import { RoleCard } from '../components/RoleCard';
+import { EducationSection } from '../components/EducationSection';
+import { CultureSection } from '../components/CultureSection';
+import { Footer } from '../components/Footer';
 
 export const Home = () => {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      icon: Brain,
-      title: 'Apprentissage Ludique',
-      description: 'Des jeux éducatifs conçus pour rendre l\'apprentissage amusant et efficace',
-      color: 'bg-blue-100',
-      iconColor: 'text-blue-600',
-    },
-    {
-      icon: Target,
-      title: 'Suivi Personnalisé',
-      description: 'Tableau de bord détaillé pour suivre la progression de chaque élève',
-      color: 'bg-purple-100',
-      iconColor: 'text-purple-600',
-    },
-    {
-      icon: BookOpenCheck,
-      title: 'Multi-matières',
-      description: 'Des jeux adaptés à toutes les matières et niveaux scolaires',
-      color: 'bg-pink-100',
-      iconColor: 'text-pink-600',
-    },
-  ];
-
   return (
+    
     <div className="min-h-screen relative">
       <Background />
 
@@ -71,7 +48,7 @@ export const Home = () => {
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-6xl font-bold text-gray-900 mb-6">
@@ -121,23 +98,11 @@ export const Home = () => {
           />
         </div>
 
-        {/* Why Choose CarthaPlay Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Pourquoi choisir CarthaPlay ?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature) => (
-              <div key={feature.title} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 transform hover:scale-[1.02] transition-all duration-300">
-                <div className={`w-16 h-16 ${feature.color} rounded-2xl flex items-center justify-center mb-6`}>
-                  <feature.icon className={`h-8 w-8 ${feature.iconColor}`} />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Education Section */}
+        <EducationSection />
+
+        {/* Culture Section */}
+        <CultureSection />
 
         {/* Contact Section */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
@@ -164,7 +129,7 @@ export const Home = () => {
               <div className="space-y-2 text-gray-600">
                 <p>roudayna.kouka@carthaplay.tn</p>
                 <p>nader.benSaleh@carthaplay.tn</p>
-                <p>abderahmen.jdidi@carthaplay.com</p>
+                <p>abderahmen.jdidi@carthaplay.tn</p>
               </div>
             </div>
           </div>
@@ -172,13 +137,7 @@ export const Home = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white/80 backdrop-blur-sm border-t mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-600">
-            <p>© 2024 CarthaPlay. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
